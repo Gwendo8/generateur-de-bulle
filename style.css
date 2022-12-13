@@ -1,0 +1,39 @@
+body{
+    /* Permet que rien ne dépasse du body (que sa ne casse pas notre page) */
+    overflow: hidden;
+    min-height: 100vh;
+    /* Permet de voir la sourire de mettre un curseur sur la où se trouve la souris  */
+    cursor:crosshair;
+}
+.bulle{
+    position: absolute;
+    border-radius: 300px;
+    background-color: rgba(255,166,0,0.6);
+    /* On met la bulle en opacity 0 pour qu'au début on ne la voit pas avant animation  */
+    opacity: 0;
+    /* On va dire que l'animation s'appelle anim et qu'elle va durer 8 secondes  */
+    /* forwards permet que la bulle ne s'efface par lorsqu'elle est totalement en haut  */
+    animation: anim 8s forwards;
+    /* hue-rotate va permettre de passer de la couleur à laquelle on est de base c'est pour sa qu'on part de 0 la  */
+    filter:hue-rotate(0deg);
+}
+
+/* Sa c'est pour ajouter une animation  */
+@keyframes anim{
+    /* On va dire que l'animation ça va etre de faire monter la bulle jusqu'a un top de -250px et qu'on va la voir grace à l'opacity 1 */
+    /* Donc la bulle viendra du bas et montera jusqu'en haut a -250px  */
+    to{
+        top: -250px;
+        opacity: 1;
+        left:var(--left);
+        /* Puis la on va passer à toutes les couleurs une fois c'est pour sa le 360 si on avait voulu passer par toutes les couleurs 2 fois on aurait mit 720 ect...  */
+        filter:hue-rotate(360deg);
+    }
+}
+
+h3{
+    font-size: 10rem;
+    text-align: center;
+    margin-top:20px;
+    color: rgba(128,128,128,0.555);
+}
